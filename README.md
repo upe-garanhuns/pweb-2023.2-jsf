@@ -51,11 +51,24 @@ Aqui vocês podem destacar como `JSF` ganhou popularidade e como ele atualmente 
 Em `src/main/java` criamos um pacote e dentro dele podemos colocar juntos a classe e seu bean respectivo. E quanto a página html, ela deve ser colocada diretamente em `src/main/webapp`. Os xml de configuração ficam dentro de `src/main/webapp/WEB-INF`, assim como qualquer .jar adicional, que seja necessário para o projeto, fica em `src/main/webapp/WEB-INF/lib`.
 
 ## 1.4 Primeiro Componente JSF
-Abordem que o `JSF` utiliza um sistema baseado em componentes para construir a UI. Discutam como esses componentes são instâncias reutilizáveis do reutilizáveis do JSF com uma parte do template (xhtml), lógica (beans) e estilos.
 
-**Orientações adicionais:**
-- **Criação de Componente:** Guiem a criação de um simples componente JSF, como um botão ou um cabeçalho. Mostrem o código do template (xhtml) e o bean (Java) associado.
-- **Integração do Componente:** Expliquem como integrar o componente criado em uma aplicação JSF, demonstrando o uso de Managed Beans para passar dados e eventos para comunicação entre componentes.
+![Cliente.java](img/Cliente.png)
+
+![ClienteBean.java](img/ClienteBean.png)
+
+![Index.xhtml](img/Index-xhtml.png)
+
+Primeiro é criado o xhtml com o componente de `h:inputText` para receber o valor do nome e da idade do cliente.
+
+Agora criamos a classe ClienteBean, que é um managed bean definido com a anotação @ManagedBean. Ele possui uma propriedade cliente do tipo Cliente, que representa os dados do cliente. Além disso, ele possui um método adicionarCliente() que será chamado quando o botão "Adicionar Cliente" for clicado. 
+
+Então, quando são preenchidos os campos no formulário HTML e o botão "Adicionar Cliente" é clicado, o JSF atualiza as propriedades do managed bean ClienteBean com os valores inseridos pelo usuário. Em seguida, ele chama o método adicionarCliente() no bean ClienteBean, onde são processados os dados do cliente. O resultado é refletido no próprio XHTML, onde os valores são exibidos utilizando expressões (#{clienteBean.cliente.nome}; #{clienteBean.cliente.idade} e #{clienteBean.cliente.genero}).
+
+Também adicionamos o componente `h:selectOneMenu` para a seleção do genêro do cliente.
+
+O `h:commandButton` é um botão que, quando clicado, aciona a ação especificada no atributo action. No nosso caso, ele está chamando o método adicionarCliente() no bean ClienteBean.
+
+E por fim, o `h:outputText` é um componente para exibir texto. Os valores mostrados aqui estão diretamente ligados às propriedades do managed bean ClienteBean.
 
 # Seção 2: Arquitetura do JSF
 
