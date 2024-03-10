@@ -11,20 +11,21 @@ Este guia serve como um roteiro detalhado para alunos que estão preparando um s
 
 ## 1.1 O que é JSF?
 
-- Vocês devem destacar suas principais características, tecnologias associadas como o `PrimeFaces`, aspectos arquiteturais marcantes e potenciais benefícios de usar `JSF` em projetos Web.
-- Contextualizem que o JavaServer Faces (JSF) é um `framework` baseado em Java para o desenvolvimento de interfaces de usuário (UI) em aplicações web.
-- Destaquem que ele faz parte da plataforma `Java Enterprise Edition` (Jakarta?), oferecendo um modelo de programação baseado em componentes que simplifica a construção e a manutenção de interfaces de usuário complexas.
-- Destaquem se JSF facilita a integração com outras tecnologias para o desenviolvimento de aplicações web robustas com reutilização de componentes, facilidade de uso e manutenção.
-- Lembrem-se de relacioná-lo ao MVC (Model-View-Controller)
-- Descrevam como o JSF se posiciona entre outras tecnologias de desenvolvimento web, como Spring MVC e Struts, em termos de curva de aprendizado, performance e uso.
-- Destaquem um paralelo do framework `JSF` com um `framework progressivo` para a construção de interfaces de usuário. Expliquem isso arqruiteturalmente falando. lembrem-se de conceitar e detalhar o que é `reatividade` no conceito deste framework e se ele se aplica.
-- Abordem se ele permite a adoçào incremental. Discutam o que significa isso de maneira prática com exemplos e mostre os impactos (benefícios/malefícios) desta característica.
-- Destrinchem o núcleo da biblioteca, ressaltem o motivo e detalhem da parspectiva de uma arquitetura `MVC`.
+O `JSF` (Jakarta Faces, atualmente) foi desenvolvido pela Sun Microsystems (agora adquirida pela Oracle Corporation) como parte da plataforma Java EE (Enterprise Edition). No momento em que foi criado, sua função foi tentar resolver problemas como a complexidade de desenvolvimento, gerenciamento de estado, reusabilidade de componentes e integração com outras tecnologias Java. É importante destacar que este framework se baseia no padrão MVC, e que dentre suas principais características, é importante destacar o uso de componentes. Nele, já vem uma lista de componentes que podem ser utilizados, porém também podem ser usadas algumas bibliotecas que contêm mais componentes, como o PrimeFaces.
 
-**Orientações adicionais:**
+Apesar de ainda ser utilizado em  projetos específicos e mais ainda em sistemas legado, ele era mais utilizado até o meio da década de 2010, que foi justamente quando começou a perder espaço para frameworks mais modernos e progressivos, como `React.js`, `VUE`, entre outros.
 
-- **Pesquisa:** Façam uma pesquisa sobre a origem do `JSF`, quem o criou, e qual problema ele visa resolver.
-- **Explanação:** Descrevam como o `JSF` se posiciona atualmente entre outros frameworks e bibliotecas, como `React` e `Angular`, em termos de curva de aprendizado, performance e uso (sobretudo na indústria, ainda é usado?).
+Junto com o `Spring MVC` e `Struts`, ele é baseado em Java. Enquanto o `Spring` tem uma estrutura mais completa, contando com com as funcionalidades necessárias para atender requisições HTTP, delegar responsabilidades de processamento de dados para outros componentes e preparar a resposta que precisa ser dada, o `JSF` se baseia em um modelo um pouco mais complexo. Como será explicado depois, seu ciclo de vida conta com bem mais passos, que são, de certa forma, “mascarados” no `Spring MVC`. 
+
+Enquanto o `Struts` é um framework MVC mais tradicional baseado em configuração XML e tags JSP, o `JSF` é um framework MVC baseado em componentes com uma abordagem mais moderna e orientada a eventos. A escolha entre `Struts` e `JSF` geralmente depende das preferências da equipe de desenvolvimento, dos requisitos do projeto e da infraestrutura tecnológica existente.
+
+- Qual a diferença entre o `JSF` e um framework mais progressivo (React.js)?
+
+Em relação a arquitetura, é importante destacar que, enquanto o `JSF` é baseado no MVC e componentizado e utiliza a renderização no lado do servidor, o React usa a renderização no lado do cliente, além de que o `JSF` gerencia o estado usando a sessão do servidor e a árvore de componentes, enquanto o React usa um DOM virtual e um fluxo de dados unidirecional para lidar com o gerenciamento de estado. O DOM virtual do React permite atualizações eficientes e melhor desempenho ao lidar com interações complexas de UI e mudanças de estado.
+
+Além disso, o framework `JSF` é não reativo, ao contrário da maioria dos frameworks webs mais utilizados, enquanto frameworks reativos como o `VUE` atuam utilizando a assincronia, e tendo como base conceitos como a responsividade (A  capacidade de oferecer um feedback mais rápido), resiliência(A capacidade de reagir e se recuperar de falhas) e elasticidade(A capacidade de se manter responsivo e resiliente, mesmo com altas variações de carga). 
+
+Dito isso, em relação à outros frameworks mais progressivos, e suas principais características, é importante destacar pontos cruciais como a curva de aprendizado: onde `JSF` tende a ter mais íngreme em comparação com React e Angular, especialmente para desenvolvedores que não estão familiarizados com o ecossistema Java EE, e a performance: onde em termos de performance, `JSF` pode ser considerado relativamente eficiente. No entanto, em comparação com React e Angular, `JSF` pode ser menos eficiente em termos de renderização de interfaces de usuário altamente dinâmicas e interativas.
 
 ## 1.2 Por que JSF?
 
