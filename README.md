@@ -19,7 +19,7 @@ Junto com o `Spring MVC` e `Struts`, ele é baseado em Java. Enquanto o `Spring`
 
 Enquanto o `Struts` é um framework MVC mais tradicional baseado em configuração XML e tags JSP, o `JSF` é um framework MVC baseado em componentes com uma abordagem mais moderna e orientada a eventos. A escolha entre `Struts` e `JSF` geralmente depende das preferências da equipe de desenvolvimento, dos requisitos do projeto e da infraestrutura tecnológica existente.
 
-- Qual a diferença entre o `JSF` e um framework mais progressivo (React.js)?
+- Qual a diferença entre o `JSF` e um framework mais progressivo `React.js`?
 
 Em relação a arquitetura, é importante destacar que, enquanto o `JSF` é baseado no MVC e componentizado e utiliza a renderização no lado do servidor, o React usa a renderização no lado do cliente, além de que o `JSF` gerencia o estado usando a sessão do servidor e a árvore de componentes, enquanto o React usa um DOM virtual e um fluxo de dados unidirecional para lidar com o gerenciamento de estado. O DOM virtual do React permite atualizações eficientes e melhor desempenho ao lidar com interações complexas de UI e mudanças de estado.
 
@@ -29,12 +29,61 @@ Dito isso, em relação à outros frameworks mais progressivos, e suas principai
 
 ## 1.2 Por que JSF?
 
-Aqui vocês podem destacar como `JSF` ganhou popularidade e como ele atualmente se contextualiza no cenário atual em relação a presença de outras bibliotecas/frameworks que visam facilidade de integração, o conceito de reatividade, a possibilidade de desenvolvimento de componentes reutilizáveis, etc.
+O JavaServer Faces (JSF) ganhou popularidade principalmente devido à sua integração com o ecossistema Java EE e sua abordagem baseada em componentes para o desenvolvimento de interfaces de usuário web.
 
-**Orientações adicionais:**
+O `JSF` é ideal para aplicações empresariais devido à sua escalabilidade e integração com tecnologias Java EE como EJB e JPA, permitindo o desenvolvimento de sistemas robustos. Sua capacidade de gerenciamento de estado é vantajosa para sistemas corporativos complexos, e sua integração com APIs de segurança oferece um alto nível de proteção. Ele também é adequado para e-commerce devido aos seus componentes ricos de UI e facilidade de integração com sistemas de pagamento. Em resumo, o `JSF` é uma escolha popular para projetos que exigem uma UI complexa, requisitos de segurança elevados e escalabilidade.
 
-- **Comparação:** Preparem uma comparação breve com outros `frameworks`, focando em pontos como tamanho do framework, velocidade, flexibilidade, curva de aprendizado, integração com `AJAX`, e suporte a `Facelets`.
-- **Casos de Uso:** Identifiquem e discutam alguns casos de uso ideais para `JSF`, para contextos como `SPAs` (Single Page Applications) ou aplicativos móveis. Discutam como `JSF` é utilizado em aplicações empresariais, destacando sua escalabilidade, integração com `EJB` e `JPA` para aplicações robustas.Identifiquem e discutam alguns casos de uso ideais para JSF, como sistemas corporativos, e-commerce, e por que empresas escolhem JSF para seus projetos.
+É importante notar que o cenário de desenvolvimento web está em constante evolução, e outras tecnologias, como `Angular`, `React` e `Vue.js`, ganharam popularidade nos últimos anos. Dependendo dos requisitos do projeto, pode ser vantajoso considerar essas tecnologias alternativas ao JSF, principalmente devido a experiência do usuário e o desempenho.
+
+### 1.2.1 **Comparação JSF, Vue e React**
+
+- **Tamanho do Framework:**
+
+**JSF:** Pode variar dependendo da implementação específica e das bibliotecas adicionais utilizadas em um projeto. No entanto, em termos de tamanho de arquivo para download, o próprio `JSF` é relativamente pequeno, geralmente medido em megabytes.
+
+**Vue:** A versão completa do `Vue.js`, incluindo o runtime e todas as funcionalidades, tem cerca de 80KB, devido ao seu tamanho de biblioteca menor e modularidade.
+
+**React:** É conhecido por ser leve, especialmente quando usado com abordagens como `React` com JSX e componentes funcionais. Sua biblioteca se aproxima muito do tamanho do `Vue.js`, com 100KB, o que ajuda em alta performance durante a execução.
+
+- **Velocidade:**
+
+**JSF:** Pode ser mais lento em termos de velocidade de carregamento e renderização, especialmente em comparação com `Vue` e `React`, devido à complexidade do ciclo de vida e à comunicação com o back-end.
+
+**Vue:** É geralmente mais rápido devido à sua abordagem eficiente de renderização com Virtual DOM.
+
+**React:** É conhecido por sua eficiência de renderização, especialmente devido ao seu Virtual DOM e algoritmo de reconciliação.
+
+- **Flexibilidade:**
+
+**JSF:** É altamente integrado ao ecossistema Java EE, o que pode limitar sua flexibilidade para projetos fora desse contexto.
+
+**Vue:** Oferece mais flexibilidade, permitindo uma variedade de abordagens de desenvolvimento e fácil integração com outras bibliotecas JavaScript.
+
+**React:** Se diferencia pela sua abordagem inovadora de construção de interfaces de usuário, que se baseia em um modelo de componente reutilizável e declarativo, oferecendo assim uma experiência de desenvolvimento altamente flexível e escalável.
+
+- **Curva de aprendizado:**
+
+**JSF:** Pode ser íngreme para iniciantes devido à sua complexidade e conceitos específicos do Java EE.
+
+**Vue:** É conhecido por ter uma curva de aprendizado mais suave, especialmente para desenvolvedores que já estão familiarizados com HTML, CSS e JavaScript.
+
+**React:** Pode ser moderada, especialmente para aqueles familiarizados com JavaScript e programação funcional.
+
+- **Integração com AJAX:**
+
+**JSF:** Possui suporte nativo para AJAX através do componente f:ajax, tornando a integração com chamadas assíncronas relativamente fácil.
+
+**Vue:** Não possui uma solução nativa para chamadas AJAX, mas é frequentemente usado em conjunto com bibliotecas como Axios para lidar com requisições assíncronas.
+
+**React:** Embora não tenha uma solução embutida para chamadas AJAX, o React oferece uma integração fluida com bibliotecas populares como Axios.
+
+- **Suporte a Facelets:**
+
+**JSF:** Possui suporte nativo para Facelets, uma tecnologia de templating poderosa e flexível, facilitando a criação de interfaces de usuário.
+
+**Vue:** Não é integrado diretamente com Facelets, mas pode ser usado em conjunto com ele, onde oferece uma integração fluida, permitindo o desenvolvimento de interfaces de usuário interativas e responsivas.
+
+**React:** Não possui uma integração direta com Facelets, mas pode ser facilmente usado em conjunto, especialmente em ambientes onde a separação entre front-end e back-end é uma prática comum.
   
 ## 1.3 Primeiros Passos com JSF
 
@@ -48,7 +97,7 @@ Aqui vocês podem destacar como `JSF` ganhou popularidade e como ele atualmente 
 
 ![Estrutura do projeto](img/estrutura-do-projeto.png)
 
-Em `src/main/java` criamos um pacote e dentro dele podemos colocar juntos a classe e seu bean respectivo. E quanto a página html, ela deve ser colocada diretamente em `src/main/webapp`. Os xml de configuração ficam dentro de `src/main/webapp/WEB-INF`, assim como qualquer .jar adicional, que seja necessário para o projeto, fica em `src/main/webapp/WEB-INF/lib`.
+Em `src/main/java`, criamos um pacote onde podemos colocar a classe e seu respectivo bean juntos. Quanto à página HTML, ela deve ser colocada diretamente em `src/main/webapp`. Os arquivos XML de configuração são armazenados dentro de `src/main/webapp/WEB-INF`, assim como qualquer arquivo.jar adicional necessário para o projeto, que é colocado em `src/main/webapp/WEB-INF/lib`.
 
 ## 1.4 Primeiro Componente JSF
 
@@ -180,4 +229,3 @@ E por fim, o `h:outputText` é um componente para exibir texto. Os valores mostr
 - **Considerem Melhorias Futuras** : Pensem em como o projeto pode ser expandido ou melhorado. Discutam funcionalidades adicionais que poderiam ser implementadas ou como a arquitetura poderia ser otimizada para maior eficiência e escalabilidade.
 
 - **Compartilhem Recursos Úteis**: Finalizem a apresentação compartilhando recursos que foram particularmente úteis durante o desenvolvimento do projeto. Isso pode incluir documentação, tutoriais, bibliotecas ou ferramentas.
-  
