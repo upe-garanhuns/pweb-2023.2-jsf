@@ -38,19 +38,17 @@ Aqui vocês podem destacar como `JSF` ganhou popularidade e como ele atualmente 
   
 ## 1.3 Primeiros Passos com JSF
 
-Introduzam o `JSF` em um projeto surpreendentemente simples. Apresentem se existe alguma possibilidade de instrumento CLI (Command Line Interface) ou `Maven/Gradle` até mesmo `IDE`s de desenvolvimento para a inicialização de novos projetos.
+- **IDE Recomendada:** Eclipse IDE
 
-**Orientações adicionais:**
+- **Configurações Iniciais com Eclipse e Tomcat:** 
 
-- **Instalação:** Demonstre a possibilidade de configurar um ambiente de desenvolvimento `JSF` iniciando a adiçào de dependências em um projeto `Maven`ou `Grade` 
-  ```bash
-  mvn archetype:generate -DgroupId=com.seuprojeto -DartifactId=meuprojeto-jsf -DarchetypeArtifactId=maven-archetype-webapp
-  # ou
-  gradle init --type java-library
+[![Vídeo de demonstração](https://img.youtube.com/vi/769ZnyHNB8k/0.jpg)](https://www.youtube.com/watch?v=769ZnyHNB8k)
 
-- **Criação de um Novo Projeto:** Guiem a criação de um projeto `JSF`, explicando o processo de configuração do arquivo `faces-config.xml` e a criação de uma página JSF básica. Vejam a possibilidade o uso de temas como no `PrimeFaces`
-  
-- **Estrutura do Projeto:** Expliquem a estrutura de diretórios padrão de um projeto `JSF`, incluindo onde colocar páginas, beans de backing, e como organizar recursos e templates. Expliquem a finalidade de cada pasta e arquivo principal, como src/main/java para classes Java e src/main/webapp para páginas JSF e recursos.
+- **Estrutura do projeto:** 
+
+![Estrutura do projeto](img/estrutura-do-projeto.png)
+
+Em `src/main/java` criamos um pacote e dentro dele podemos colocar juntos a classe e seu bean respectivo. E quanto a página html, ela deve ser colocada diretamente em `src/main/webapp`. Os xml de configuração ficam dentro de `src/main/webapp/WEB-INF`, assim como qualquer .jar adicional, que seja necessário para o projeto, fica em `src/main/webapp/WEB-INF/lib`.
 
 ## 1.4 Primeiro Componente JSF
 Abordem que o `JSF` utiliza um sistema baseado em componentes para construir a UI. Discutam como esses componentes são instâncias reutilizáveis do reutilizáveis do JSF com uma parte do template (xhtml), lógica (beans) e estilos.
