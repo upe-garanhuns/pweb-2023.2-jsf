@@ -257,13 +257,45 @@ O contexto de aplicação do JSF permite que os dados sejam compartilhados entre
 - Utilizem subseções para isso como no exemplo abaixo:
 
 ### 4.1 Uso de AJAX no JSF
-- Citem que `AJAX` é usado no `JSF` para atualizar partes da página sem necessidade de recarregar toda a página, melhorando a experiência do usuário.
-- Explique como usar tags `AJAX` do `JSF`, como `<f:ajax>`, para adicionar comportamentos `AJAX` a componentes `JSF`.
-- Exemplo de Uso: Mostrem um exemplo de como adicionar interatividade a um formulário `JSF` usando <f:ajax> para atualização parcial da view.
-- ```xml
-  <h:commandButton value="Submit" action="#{bean.submit}">
+
+AJAX é uma técnica utilizada no desenvolvimento web para atualizar partes específicas de uma página sem a necessidade de recarregar a página inteira e é frequentemente utilizado no contexto do JSF para melhorar a experiência do usuário, permitindo interações mais dinâmicas e responsivas.
+
+No JSF, você pode usar a tag `f:ajax` para adicionar comportamentos AJAX a componentes JSF, como botões, links e inputs. Essa tag permite definir quais eventos devem acionar a requisição AJAX, quais componentes devem ser processados no lado do servidor e quais componentes da página devem ser atualizados após a resposta do servidor.
+
+- O atributo execute especifica quais componentes JSF devem ser processados no lado do servidor antes de enviar a requisição AJAX. No exemplo fornecido `execute="@form"`, todos os componentes dentro do formulário atual serão processados.
+
+- O atributo render especifica quais componentes da página devem ser atualizados após a resposta do servidor. No exemplo fornecido `render="@form"`, o formulário atual será atualizado.
+
+```xml
+  <h:form>
+  <h:inputText value="#{bean.valorEntrada}" />
+  <h:commandButton value="Enviar" action="#{bean.submeter}">
     <f:ajax execute="@form" render="@form" />
   </h:commandButton>
+  </h:form>
+```
+
+```xml
+@ManagedBean
+@RequestScoped
+public class Bean {
+    
+    private String valorEntrada;
+    
+    
+    public String getValorEntrada() {
+        return valorEntrada;
+    }
+
+    public void setValorEntrada(String valorEntrada) {
+        this.valorEntrada = valorEntrada;
+    }
+    
+    public void submeter() {
+        System.out.println("Valor de entrada: " + valorEntrada);
+    }
+}
+```
 
 ### 4.2 Templates Facelets
 - Explorarem como `Templates Facelets` no `JSF` permitem a criação de layouts reutilizáveis que podem ser aplicados em várias páginas da aplicação, facilitando a manutenção e a consistência do design. 
