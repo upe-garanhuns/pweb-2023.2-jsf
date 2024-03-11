@@ -126,20 +126,69 @@ E por fim, o `h:outputText` é um componente para exibir texto. Os valores mostr
 - O objetivo é fornecer aos colegas um entendimento detalhado dos aspectos arquiteturais do `JSF`, permitindo uma apreciação mais profunda de como aplicativos são construídos e gerenciados neste framework.
 
 ## 2.1 Definição e Estrutura de Componentes do JSF
-- Expliquem a definição do conceito de componentes `JSF`, incluindo `Managed Beans` e `backing beans`, que são usados para gerenciar o estado e a lógica de negócios de componentes de `UI`.
-- Detalhem que JSF é construído em torno de uma arquitetura de componentes modulares, onde cada componente UI (User Interface) encapsula seu próprio comportamento, lógica, e estado.
-- Lembrem-se de nesta seção detalhar como os componentes funcionam e como eles podem ser compostos para construir aplicações complexas.
 
-### Orientações adicionais:
+Em JavaServer Faces (JSF), os componentes são responsáveis por construírem as interfaces de usuário, e fazer com que sejam dinâmicas e interativas. Um componente no contexto do JSF é uma abstração de um elemento de interface do usuário (UI) que encapsula seu comportamento, lógica e estado. 
 
-- Acrescentem subseções que contemple as informações abaixo:
+Para gerenciar o estado e a lógica de negócios dos componentes de UI, JSF utiliza Managed Beans e backing beans. Managed Beans são classes Java que atuam como objetos de suporte para os componentes de UI em uma aplicação JSF. Essas classes são gerenciadas pelo container JSF e são responsáveis por lidar com o estado e a lógica de negócios associados aos componentes. Elas encapsulam a lógica da aplicação e oferecem métodos e propriedades que podem ser acessados diretamente pelas páginas JSF. Geralmente, os Managed Beans são anotados com @ManagedBean para indicar ao JSF que eles devem ser gerenciados pelo container. 
 
-**Definição de Componente:** Expliquem o que é um componente no contexto do `JSF`, mencionando a hierarquia de componentes e como eles são definidos em páginas `XHTML` usando tags.
+Já os backing beans são um tipo específico de Managed Beans que são usados para suportar a interface de usuário (UI) em páginas JSF. Eles são responsáveis por manter o estado dos componentes de UI e executar a lógica de negócios associada às interações do usuário. Os backing beans geralmente são associados a formulários ou páginas específicas e são utilizados para vincular os valores dos componentes de UI aos campos de dados do modelo de negócios. Eles podem conter métodos que são chamados em resposta a eventos de UI, como submissão de formulário ou cliques em botões.
 
-**Composição de Componentes:** Discutam como os componentes podem ser aninhados e reutilizados para criar interfaces de usuário complexas, e como os dados são passados entre eles usando expressões `EL (Expression Language)` e `Taglibs`.
+Managed Beans e backing beans fornecem um meio de gerenciar o estado e a lógica de negócios dos componentes de UI. Eles ajudam a manter a separação de interesses entre a camada de apresentação e a camada de lógica de negócios, o que contribui para a modularidade, reutilização e manutenção do código da aplicação.
 
-**Exemplo Prático:** Demonstrem a criação de um formulário simples no `JSF`, mostrando o uso de componentes como `h:inputText` e `h:commandButton`, e como eles interagem para submeter dados ao servidor.
+**Definição de Componente:** No contexto do JavaServer Faces (JSF), um componente é uma abstração de um elemento de interface do usuário (UI) que encapsula seu próprio comportamento, lógica e estado. Os componentes são a base para construir a interface do usuário em uma aplicação JSF. Eles podem variar desde simples, como campos de entrada de texto e botões, até complexos, como tabelas de dados e painéis de abas.
 
+Os componentes em JSF seguem uma hierarquia, onde alguns componentes podem conter outros. Por exemplo, um formulário (<h:form>) pode conter vários campos de entrada (<h:inputText>) e botões de comando (<h:commandButton>). Essa hierarquia facilita a organização e a composição de interfaces de usuário complexas.
+
+Os componentes são definidos em páginas XHTML usando tags específicas do JSF. Por exemplo, para criar um campo de entrada de texto, podemos usar a tag <h:inputText>, e para um botão de comando, usamos <h:commandButton>. Os atributos dessas tags podem ser configurados para controlar o comportamento e a aparência dos componentes.
+
+**Composição de Componentes:** Os componentes em JSF podem ser aninhados e compostos uns com os outros para criar interfaces de usuário complexas e ricas em funcionalidades. Isso significa que podemos agrupar componentes menores para criar componentes maiores e mais complexos.
+
+A composição de componentes permite a reutilização eficiente de código, pois pequenos componentes podem ser usados em várias partes da aplicação. Além disso, os dados podem ser passados entre os componentes usando Expressions Language (EL) e Taglibs. Por exemplo, o valor de um campo de entrada pode ser vinculado a uma propriedade em um backing bean usando EL, permitindo que os dados sejam recuperados e processados posteriormente.
+
+**Exemplo Prático:** 
+
+```xml
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Formulário JSF</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputLabel for="nome" value="Nome:" />
+        <h:inputText id="nome" value="#{formularioBean.nome}" />
+        <br/>
+        <h:commandButton value="Enviar" action="#{formularioBean.enviar}" />
+    </h:form>
+</h:body>
+</html>
+```
+
+```xml
+package upe.br.es;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+@ManagedBean
+@RequestScoped
+public class FormularioBean {
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String enviar() {
+        return "resultado";
+    }
+}
+```
 ## 2.2 Sistema Reativo do JSF (Ciclo de Vida de uma Página no JSF)
 
 Ao contrário do conceito de reatividade em frameworks como Vue.js, onde as atualizações são automaticamente refletidas na interface do usuário quando os dados subjacentes mudam, no JavaServer Faces (JSF), a reatividade é gerenciada pelo ciclo de vida da aplicação. Isso significa que as atualizações na interface do usuário ocorrem em resposta aos eventos do ciclo de vida da página, como processamento de eventos de UI, validações e atualizações do modelo, que acontecem antes da renderização da resposta na página.
