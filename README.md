@@ -1,13 +1,8 @@
-Template para Seminário sobre a tecnologia jsf
-# Guia Detalhado para Seminário de `JSF`
+# Seminário de `JSF`
 
-Este guia serve como um roteiro detalhado para alunos que estão preparando um seminário técnico e aprofundado sobre `JSF`, com foco na arquitetura e implementação.
+Este seminário técnico e aprofundado sobre `JSF` explora os fundamentos da arquitetura do `JSF`, destacando sua abordagem baseada em componentes e seu ciclo de vida de processamento de requisições.
 
 # Seção 1: Introdução ao JSF
-
-- Nesta seção, vocês devem abordar o que é `JSF`, por que ele é uma escolha popular entre os desenvolvedores, e como iniciar projetos usando este framework. 
-- O objetivo é fornecer aos colegas que estão assitindo a apresentação uma visão geral com base sólida sobre o que vocês pesquisaram sobre o `JSF`.
-- Descrevam como o JSF se posiciona entre outros frameworks e bibliotecas, como `Spring MVC` e `Struts`, em termos de curva de aprendizado, performance e uso.
 
 ## 1.1 O que é JSF?
 
@@ -121,10 +116,6 @@ E por fim, o `h:outputText` é um componente para exibir texto. Os valores mostr
 
 # Seção 2: Arquitetura do JSF
 
-- Nesta seção explorem a arquitetura fundamental do `JSF`.
-- Abordem sua estrutura de componentes, o ciclo de vida de uma página e a comunicação entre componentes.
-- O objetivo é fornecer aos colegas um entendimento detalhado dos aspectos arquiteturais do `JSF`, permitindo uma apreciação mais profunda de como aplicativos são construídos e gerenciados neste framework.
-
 ## 2.1 Definição e Estrutura de Componentes do JSF
 
 Em JavaServer Faces (JSF), os componentes são responsáveis por construírem as interfaces de usuário, e fazer com que sejam dinâmicas e interativas. Um componente no contexto do JSF é uma abstração de um elemento de interface do usuário (UI) que encapsula seu comportamento, lógica e estado. 
@@ -235,8 +226,6 @@ Os eventos e listeners permitem que os componentes gerem e respondam a ações d
 O contexto de aplicação do JSF permite que os dados sejam compartilhados entre diferentes partes da aplicação, possibilitando uma comunicação eficiente entre componentes em diferentes partes da mesma página ou em páginas diferentes.
 
 # Seção 3: Padrões de Projeto e Implementação Avançada no JSF
-- Explorem os padrões de projeto fundamentais incorporados no `JSF` e como eles facilitam o desenvolvimento de aplicações robustas e manuteníveis.
-- Explorem técnicas avançadas de implementação que otimizam a eficiência e a escalabilidade dos projetos JSF.
 
 ## 3.1 Padrões de Projeto no JSF
 
@@ -314,9 +303,6 @@ No arquivo web.xml, configuramos o FacesServlet e mapeamos suas URLs. Isso direc
 No arquivo faces-config.xml, definimos regras de navegação para direcionar o usuário para diferentes páginas com base nas ações executadas. Por exemplo, se o usuário estiver na página1.xhtml e uma ação resultar em "pagina2", ele será redirecionado para pagina2.xhtml.
 
 ## 4 Técnicas Avançadas de Implementação
-
-- Apresentem como técnicas avançadas, como `AJAX` no `JSF` e a integração com `CDI (Contexts and Dependency Injection)` para gerenciamento de `beans`, podem melhorar a `interatividade` e `modularidade`.
-- Utilizem subseções para isso como no exemplo abaixo:
 
 ### 4.1 Uso de AJAX no JSF
 
@@ -424,13 +410,14 @@ Os templates Facelets promovem a reutilização de código e a separação clara
 Neste exemplo, `template.xhtml` define a estrutura comum da aplicação, incluindo o cabeçalho, menu de navegação, conteúdo e rodapé. `minhaPagina.xhtml` utiliza este template, inserindo seu próprio conteúdo específico na área definida por `ui:define name="content"`. Isso permite que a estrutura do layout seja reutilizada em várias páginas, enquanto o conteúdo específico de cada página é inserido conforme necessário.
 
 ## 5 Conclusão e Reflexão
+
 - **Preparem uma Demonstração**: Certifiquem-se de que o projeto final esteja totalmente funcional e pronto para ser demonstrado. Revisem todos os requisitos do projeto para garantir que nada foi esquecido.
 
 - **Organizem a Apresentação**: Criem uma sequência lógica para apresentar o projeto. Iniciem com uma visão geral da aplicação, seguida por uma demonstração das funcionalidades principais e dos aspectos técnicos destacados.
 
-- ** Aproveitem para Destacar Desafios e Soluções**: Identifiquem os principais desafios enfrentados durante o desenvolvimento do projeto e discutam como resolveram esses problemas. Isso pode incluir desafios de codificação, decisões de design ou a integração de tecnologias.
+- **Aproveitem para Destacar Desafios e Soluções**: Identifiquem os principais desafios enfrentados durante o desenvolvimento do projeto e discutam como resolveram esses problemas. Isso pode incluir desafios de codificação, decisões de design ou a integração de tecnologias.
 
-- ** Screencasts ou Vídeos** : Considerem a utilização de screencasts para demonstrar a funcionalidade da aplicação ou vídeos para explicar conceitos complexos. Isso pode ajudar a tornar a apresentação mais dinâmica e compreensível.
+- **Screencasts ou Vídeos** : Considerem a utilização de screencasts para demonstrar a funcionalidade da aplicação ou vídeos para explicar conceitos complexos. Isso pode ajudar a tornar a apresentação mais dinâmica e compreensível.
   
 - **Discutam as Lições Aprendidas**: Reflitam sobre o que aprenderam durante o processo de desenvolvimento do projeto. Isso pode incluir novas habilidades técnicas, insights sobre design de software ou aperfeiçoamento de habilidades de trabalho em equipe.
 
