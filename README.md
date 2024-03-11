@@ -240,16 +240,78 @@ O contexto de aplicação do JSF permite que os dados sejam compartilhados entre
 
 ## 3.1 Padrões de Projeto no JSF
 
-- Destaquem que JSF utiliza vários padrões de design para resolver problemas comuns de desenvolvimento web.
-- Incluam subseções para citar os padrões utilizados no framework (Modelo MVC, Injeção de Dependência, FrontControler, etc) de forma a ajudar a compreender como a criação de componentes e aplicações podem ser mais eficientes como no exemplo abaixo:
+O JavaServer Faces (JSF) incorpora vários padrões de projeto fundamentais que facilitam o desenvolvimento de aplicações robustas e manuteníveis.
+
+- **Modelo MVC (Model-View-Controller):**
+O padrão Modelo-Visão-Controlador é central no JSF. Ele promove a separação de preocupações entre os dados (Modelo), a apresentação (Visão) e a lógica de controle (Controlador). No JSF, os componentes visuais (View) são definidos nos arquivos de facelets, enquanto a lógica de controle é implementada nos Managed Beans, que atuam como controladores. Os dados são manipulados pelos modelos subjacentes, muitas vezes representados por entidades JavaBeans.
+
+- **Injeção de Dependência:**
+JSF favorece o princípio de Injeção de Dependência (DI), facilitando a criação de componentes e a resolução de dependências de forma transparente. Por meio do CDI (Contexts and Dependency Injection), o JSF permite injetar automaticamente instâncias de beans gerenciados em outras classes, reduzindo a acoplamento e simplificando a configuração de componentes.
+
+- **Front Controller:**
+O padrão Front Controller é implementado no JSF através do FacesServlet. O FacesServlet atua como o controlador central da aplicação, roteando todas as solicitações para os devidos componentes de processamento. Isso simplifica o fluxo de controle e permite a centralização da lógica de navegação e manipulação de solicitações.
+
+- **Outros Padrões Utilizados:**
+Além dos padrões mencionados acima, o JSF incorpora uma série de outros padrões de design para resolver problemas comuns de desenvolvimento web. Alguns desses padrões incluem:
+
+  - **Template Method:** Utilizado na definição de componentes reutilizáveis e personalizáveis.
+  - **Observer:** Empregado em eventos de ciclo de vida do JSF para notificar componentes registrados sobre alterações de estado.
+  - **Composite:** Usado na criação de componentes compostos que encapsulam funcionalidades complexas.
+
+- **Técnicas Avançadas de Implementação:**
+Além dos padrões de projeto, existem várias técnicas avançadas de implementação que podem otimizar a eficiência e a escalabilidade dos projetos JSF:
+
+  - **Lazy Loading:** Carregar dados sob demanda para melhorar o desempenho e reduzir a sobrecarga inicial.
+  - **Cache:** Armazenar em cache dados estáticos ou frequentemente acessados para reduzir a carga no servidor.
+  - **CDI Escopo:** Utilizar escopos adequados de CDI para gerenciar o ciclo de vida dos beans e otimizar o uso de recursos.
+
+  - Essas técnicas, combinadas com os padrões de projeto mencionados anteriormente, ajudam a criar aplicações JSF eficientes e escaláveis, capazes de lidar com os desafios do desenvolvimento web moderno.
 
 ### 3.1.1 Padrão Front Controller
 
-- Citem o padrão e destaquem como ele é fundamental no JSF, coordenando as solicitações para uma aplicação através de um único ponto de entrada, o `FacesServlet`.
+- **Importância no JSF:**
+O padrão Front Controller é essencial no JavaServer Faces (JSF) porque coordena todas as solicitações para a aplicação web através de um único ponto de entrada, o FacesServlet. Isso promove a centralização do controle e da lógica de navegação, simplificando o desenvolvimento e a manutenção da aplicação.
 
-**Expliquem o Padrão:** Descrevam como o `FacesServlet` atua como um `front controller`, gerenciando o `ciclo de vida` das requisições `JSF` e a navegação entre as páginas.
+- **Explicação do Padrão:**
+O Front Controller é um padrão de design que fornece um controlador centralizado para lidar com todas as solicitações recebidas por uma aplicação web. No contexto do JSF, o FacesServlet atua como o Front Controller. Quando uma solicitação é feita para uma aplicação JSF, ela é direcionada para o FacesServlet, que gerencia o ciclo de vida das requisições JSF e coordena a navegação entre as páginas.
 
-**Exemplo Prático:** Demonstrem como configurar o `web.xml` para definir o `FacesServlet` e como definir regras de navegação no `faces-config.xml`.
+- **Funcionamento do FacesServlet como Front Controller:**
+O FacesServlet é responsável por processar todas as solicitações JSF e roteá-las para os componentes apropriados. Ele gerencia o ciclo de vida das requisições JSF, incluindo a fase de aplicação, onde os eventos são processados e a resposta é gerada. Além disso, o FacesServlet é responsável por controlar a navegação entre as páginas, determinando para qual página o usuário deve ser redirecionado após uma ação ser executada.
+
+- Como configurar o web.xml para definir o FacesServlet e como definir regras de navegação no faces-config.xml:
+
+```xml
+<!-- Configuração do web.xml -->
+<servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+</servlet-mapping>
+```
+
+No arquivo web.xml, configuramos o FacesServlet e mapeamos suas URLs. Isso direcionará todas as solicitações que correspondem ao padrão *.jsf para o FacesServlet.
+
+```xml
+<!-- Definição de Regras de Navegação no faces-config.xml -->
+<navigation-rule>
+    <from-view-id>/pagina1.xhtml</from-view-id>
+    <navigation-case>
+        <from-outcome>pagina2</from-outcome>
+        <to-view-id>/pagina2.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
+        <from-outcome>pagina3</from-outcome>
+        <to-view-id>/pagina3.xhtml</to-view-id>
+    </navigation-case>
+</navigation-rule>
+```
+
+No arquivo faces-config.xml, definimos regras de navegação para direcionar o usuário para diferentes páginas com base nas ações executadas. Por exemplo, se o usuário estiver na página1.xhtml e uma ação resultar em "pagina2", ele será redirecionado para pagina2.xhtml.
 
 ## 4 Técnicas Avançadas de Implementação
 
@@ -298,24 +360,68 @@ public class Bean {
 ```
 
 ### 4.2 Templates Facelets
-- Explorarem como `Templates Facelets` no `JSF` permitem a criação de layouts reutilizáveis que podem ser aplicados em várias páginas da aplicação, facilitando a manutenção e a consistência do design. 
-- Destaquem que eles funcionam definindo um template base que inclui elementos comuns da `UI`, como `cabeçalho`, `rodapé` e `menu de navegação`.
-- Podem explorar como as páginas que utilizam o template podem então inserir seu conteúdo específico nos pontos de inclusão definidos (`<ui:define>`), enquanto reutilizam a estrutura comum (`<ui:include>` ou `<ui:composition>`), promovendo a reutilização de código e a separação clara entre layout e conteúdo.
-- Apresentem um exemplo com templates de código. Exemplo:
-- ```xml
-  <!-- minhaPagina.xhtml -->
-  <ui:composition template="/template.xhtml"
+
+Os Templates Facelets no JSF permitem criar layouts reutilizáveis que podem ser aplicados em várias páginas da aplicação, facilitando a manutenção e a consistência do design. Eles funcionam definindo um template base que inclui elementos comuns da UI, como cabeçalho, rodapé e menu de navegação.
+
+Os templates Facelets promovem a reutilização de código e a separação clara entre layout e conteúdo. Isso é alcançado através do uso de tags específicas, como `ui:define`, `ui:include`, ou `ui:composition`, que permitem inserir conteúdo específico nas páginas que utilizam o template, enquanto reutilizam a estrutura comum.
+
+```xml
+<!-- template.xhtml -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<head>
+    <title><ui:insert name="title">Título</ui:insert></title>
+</head>
+<body>
+    <header>
+        <h1>Aplicativo</h1>
+        <ui:insert name="header"></ui:insert>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Página 1</a></li>
+            <li><a href="#">Página 2</a></li>
+            <li><a href="#">Página 3</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <ui:insert name="content"></ui:insert>
+    </main>
+
+    <footer>
+        <p>Rodapé</p>
+        <ui:insert name="footer"></ui:insert>
+    </footer>
+</body>
+</html>
+```
+
+```xml
+<!-- minhaPagina.xhtml -->
+<ui:composition template="/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <ui:define name="title">Minha Página JSF</ui:define>
-
+    <ui:define name="title">Meus Produtos</ui:define>
+    
     <ui:define name="content">
-        <h1>Conteúdo Específico da Minha Página</h1>
-        <!-- Mais conteúdo específico da página -->
+        <h2>Bem-vindo à Página de Produtos</h2>
+        <p>Aqui você encontrará uma lista de produtos disponíveis:</p>
+        <ul>
+            <li>Produto 1</li>
+            <li>Produto 2</li>
+            <li>Produto 3</li>
+        </ul>
     </ui:define>
-  </ui:composition>
+</ui:composition>
+```
+
+Neste exemplo, `template.xhtml` define a estrutura comum da aplicação, incluindo o cabeçalho, menu de navegação, conteúdo e rodapé. `minhaPagina.xhtml` utiliza este template, inserindo seu próprio conteúdo específico na área definida por `ui:define name="content"`. Isso permite que a estrutura do layout seja reutilizada em várias páginas, enquanto o conteúdo específico de cada página é inserido conforme necessário.
 
 ## 5 Conclusão e Reflexão
 - **Preparem uma Demonstração**: Certifiquem-se de que o projeto final esteja totalmente funcional e pronto para ser demonstrado. Revisem todos os requisitos do projeto para garantir que nada foi esquecido.
