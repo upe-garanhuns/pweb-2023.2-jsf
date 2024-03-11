@@ -163,14 +163,27 @@ O JSF realiza o tráfego de dados entre o cliente e o servidor usando o protocol
 Para atualizar partes da página dinamicamente sem recarregar toda a página, o JSF oferece suporte a AJAX (Asynchronous JavaScript and XML). Com AJAX, os desenvolvedores podem enviar solicitações assíncronas ao servidor para buscar ou atualizar dados específicos sem a necessidade de recarregar a página inteira. Isso melhora significativamente a experiência do usuário, especialmente em casos onde pequenas atualizações são necessárias, evitando a recarga desnecessária de recursos.
   
 ## 2.3 Comunicação Entre Componentes
-- Reforcem como é realizada a comunicação entre componentes e que ela é facilitada pelo uso de expressões EL (Expression Language), que permitem o acesso e a manipulação dos dados dos Managed Beans nos componentes de UI.
-- Associe também como é a relação entre o controle de eventos, sobretudo quanto se trata de validação e conversão de dados.
+A comunicação entre componentes em JSF é facilitada pelo uso de Expression Language (EL), que permite o acesso e a manipulação dos dados dos Managed Beans nos componentes de UI. A EL é uma linguagem de script utilizada para referenciar objetos em tempo de execução, permitindo uma integração fácil e direta entre a camada de apresentação (UI) e a camada de negócios.
 
-### Orientações adicionais:
-- Discutam como o `JSF` facilita a comunicação entre componentes na mesma página ou entre páginas diferentes, usando mecanismos como eventos, listeners, e o contexto de aplicação para manter o estado e compartilhar dados.
- - Acrescentem uma seção `Escopos`: Introduzam o conceito de escopos é suas respectivas anotações são tratadas no JSF.
- - Abordem a `Comunicação Direta`: Expliquem como os componentes `JSF` comunicam-se diretamente através de bindings com `Managed Beans`, utilizando `EL` para vincular propriedades e métodos.
-- Apresentem como os `Eventos e Listeners` funcionam: Demonstrem como definir e tratar eventos de componentes JSF, permitindo a interação dinâmica dentro da aplicação.
+No JSF, os componentes comunicam-se diretamente com os Managed Beans através de bindings. Isso significa que os atributos e métodos dos Managed Beans podem ser vinculados aos componentes de UI usando EL. Por exemplo, um campo de entrada (input) pode ser associado a uma propriedade de um Managed Bean, e quando o valor do campo é alterado, essa mudança é refletida automaticamente no Managed Bean e vice-versa.
+
+Os eventos são fundamentais para a interação dinâmica dentro de uma aplicação JSF. Os componentes JSF podem gerar eventos em resposta a ações do usuário, como cliques de botões ou alterações de valores em campos de entrada. Por sua vez, esses eventos são tratados por listeners, que são métodos ou classes Java responsáveis por processar as ações associadas aos eventos.
+
+Por exemplo, ao clicar em um botão de "Salvar", um evento é gerado, e um listener associado a esse evento pode ser chamado para executar a lógica de salvamento dos dados no banco de dados.
+
+No JSF, os escopos referem-se aos diferentes níveis de vida útil dos objetos gerenciados (Managed Beans). Existem diversos escopos disponíveis no JSF, cada um indicando por quanto tempo um Managed Bean deve ser mantido e disponível durante o ciclo de vida da requisição. Alguns dos escopos mais comuns são:
+
+- **Request Scope:** O Managed Bean é criado para atender a uma única requisição do usuário e é descartado após a resposta ser enviada de volta ao cliente.
+- **Session Scope:** O Managed Bean é mantido para toda a sessão do usuário.
+- **Application Scope:** O Managed Bean é mantido enquanto a aplicação estiver em execução.
+
+As anotações utilizadas para definir esses escopos são `@RequestScoped`, `@SessionScoped`, e `@ApplicationScoped`, respectivamente.
+
+O JSF facilita a comunicação entre componentes na mesma página ou entre páginas diferentes através de diversos mecanismos, como:
+
+Como mencionado anteriormente, os componentes podem se comunicar diretamente com os Managed Beans usando EL e bindings.
+Os eventos e listeners permitem que os componentes gerem e respondam a ações do usuário de forma dinâmica.
+O contexto de aplicação do JSF permite que os dados sejam compartilhados entre diferentes partes da aplicação, possibilitando uma comunicação eficiente entre componentes em diferentes partes da mesma página ou em páginas diferentes.
 
 # Seção 3: Padrões de Projeto e Implementação Avançada no JSF
 - Explorem os padrões de projeto fundamentais incorporados no `JSF` e como eles facilitam o desenvolvimento de aplicações robustas e manuteníveis.
