@@ -96,11 +96,120 @@ Em `src/main/java`, criamos um pacote onde podemos colocar a classe e seu respec
 
 ## 1.4 Primeiro Componente JSF
 
-![Cliente.java](img/Cliente.png)
+- **Classe Cliente.java:**
 
-![ClienteBean.java](img/ClienteBean.png)
+```xml
+public class Cliente {
+  private String nome;
+  private int idade;
+  private String genero;
 
-![Index.xhtml](img/Index-xhtml.png)
+  public Cliente() {}
+
+  public String getNome() {
+    return nome;
+  }
+
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
+
+  public int getIdade() {
+    return idade;
+  }
+
+  public void setIdade(int idade) {
+    this.idade = idade;
+  }
+
+  public String getGenero() {
+    return genero;
+  }
+
+  public void setGenero(String genero) {
+    this.genero = genero;
+  }
+}
+```
+
+- **Classe ClienteBean.java:**
+
+```xml
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+@ManagedBean
+@SessionScoped
+public class ClienteBean {
+  private Cliente cliente;
+
+  public ClienteBean() {
+    cliente = new Cliente();
+  }
+
+  public Cliente getCliente() {
+    return cliente;
+  }
+
+  public void setCliente(Cliente cliente) {
+    this.cliente = cliente;
+  }
+
+  public void adicionarCliente() {
+    System.out.println("Cliente adicionado:");
+    System.out.println("Nome: " + cliente.getNome());
+    System.out.println("Idade: " + cliente.getIdade());
+    System.out.println("Gênero: " + cliente.getGenero());
+  }
+}
+```
+
+- **Página Index.xhtml:**
+
+```xml
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Adicionar Cliente</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel for="nome" value="Nome do Cliente: " />
+			<h:inputText id="nome" value="#{clienteBean.cliente.nome}" />
+
+			<h:outputLabel for="idade" value="Idade do Cliente: " />
+			<h:inputText id="idade" value="#{clienteBean.cliente.idade}" />
+
+			<h:outputLabel for="genero" value="Gênero do Cliente: " />
+			<h:selectOneMenu id="genero" value="#{clienteBean.cliente.genero}">
+				<f:selectItem itemValue="Masculino" itemLabel="Masculino" />
+				<f:selectItem itemValue="Feminino" itemLabel="Feminino" />
+				<f:selectItem itemValue="Outro" itemLabel="Outro" />
+			</h:selectOneMenu>
+		</h:panelGrid>
+
+		<h:commandButton value="Adicionar Cliente"
+			action="#{clienteBean.adicionarCliente}" />
+		<h2>Dados do Cliente Adicionado:</h2>
+		<h:panelGrid columns="2">
+			<h:outputText value="Nome do Cliente: " />
+			<h:outputText value="#{clienteBean.cliente.nome}" />
+
+			<h:outputText value="Idade do Cliente: " />
+			<h:outputText value="#{clienteBean.cliente.idade}" />
+
+			<h:outputText value="Gênero do Cliente: " />
+			<h:outputText value="#{clienteBean.cliente.genero}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
+```
 
 Primeiro é criado o xhtml com o componente de `h:inputText` para receber o valor do nome e da idade do cliente.
 
@@ -180,6 +289,7 @@ public class FormularioBean {
     }
 }
 ```
+
 ## 2.2 Sistema Reativo do JSF (Ciclo de Vida de uma Página no JSF)
 
 Ao contrário do conceito de reatividade em frameworks como Vue.js, onde as atualizações são automaticamente refletidas na interface do usuário quando os dados subjacentes mudam, no JavaServer Faces (JSF), a reatividade é gerenciada pelo ciclo de vida da aplicação. Isso significa que as atualizações na interface do usuário ocorrem em resposta aos eventos do ciclo de vida da página, como processamento de eventos de UI, validações e atualizações do modelo, que acontecem antes da renderização da resposta na página.
