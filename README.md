@@ -142,15 +142,25 @@ E por fim, o `h:outputText` é um componente para exibir texto. Os valores mostr
 
 ## 2.2 Sistema Reativo do JSF (Ciclo de Vida de uma Página no JSF)
 
-- Destquem que ao contrário do conceito de `reatividade` em frameworks como `Vue.js`, a `reatividade` no JSF é gerenciada pelo `ciclo de vida da aplicação`, que processa eventos de UI, realiza validações, e atualiza o modelo antes de renderizar a resposta na página.
-- Destaquem qtodos os elementos do ciclo de vida, bem detalhado mostrando o processamento de páginas mediante a requisição de um usuário até a resposta emitida pelo servidor
-- Expliquem o controle sobre o processamento de solicitações e renderizações de respostas.
+Ao contrário do conceito de reatividade em frameworks como Vue.js, onde as atualizações são automaticamente refletidas na interface do usuário quando os dados subjacentes mudam, no JavaServer Faces (JSF), a reatividade é gerenciada pelo ciclo de vida da aplicação. Isso significa que as atualizações na interface do usuário ocorrem em resposta aos eventos do ciclo de vida da página, como processamento de eventos de UI, validações e atualizações do modelo, que acontecem antes da renderização da resposta na página.
 
-### Orientações adicionais:
-- Expliquem as fases do ciclo de vida da página `JSF`, desde a restauração da view até a renderização da resposta, destacando como os desenvolvedores podem intervir em cada fase.
-- Discutam como o `JSF` realiza o tráfego de dados e com a mudança dos dados podem impactar no ciclo de vida.
-- Introduzam o uso de `AJAX` no `JSF` para atualizar partes da página dinamicamente, reduzindo a necessidade de recarregar toda a página para pequenas atualizações.
-- Apresentem um exemplo prático, vocês podem destacar na página criada a possibilidade ou não do uso do AJAX/
+- O ciclo de vida da página JSF se comporta dessa maneira:
+
+  ![Ciclo de Vida](img/ciclo-de-vida.jpg)
+
+  - **Restauração da View:** Nesta fase, o JSF verifica se a requisição do usuário está associada a uma visualização JSF existente ou se é necessário criar uma nova. Os desenvolvedores podem intervir nesta fase adicionando ou modificando componentes da visualização, como campos de entrada, botões, etc.
+
+  - **Aplicação de Validações de Componentes:** Durante esta fase, o JSF valida os dados de entrada do usuário com base nas regras de validação definidas pelos desenvolvedores nos componentes da interface do usuário. Os desenvolvedores podem intervir nesta fase personalizando as mensagens de erro ou adicionando suas próprias regras de validação.
+
+  - **Processamento de Eventos do Componente:** Aqui, os eventos gerados pelos componentes da interface do usuário são processados. Os desenvolvedores podem intervir nesta fase implementando métodos de ação para lidar com os eventos dos componentes. Eles podem executar operações adicionais, como chamar métodos de negócios ou atualizar o modelo de dados.
+
+  - **Atualização do Modelo:** Após a validação dos dados e o processamento dos eventos, o modelo de dados da aplicação é atualizado para refletir as alterações feitas pelo usuário. Os desenvolvedores podem intervir nesta fase atualizando manualmente o modelo de dados ou executando operações adicionais antes que a resposta seja renderizada.
+
+  - **Renderização da Resposta:** Finalmente, nesta fase, o JSF gera o HTML correspondente à resposta da requisição do usuário, que será enviada de volta ao navegador para exibição. Os desenvolvedores podem intervir nesta fase personalizando a aparência da resposta, definindo templates de visualização, aplicando estilos CSS e muito mais.
+
+O JSF realiza o tráfego de dados entre o cliente e o servidor usando o protocolo HTTP. Quando os dados são alterados pelo usuário, eles são enviados ao servidor por meio de solicitações HTTP, onde são processados pelo ciclo de vida da página JSF. As alterações no modelo de dados durante o processamento da página são refletidas na resposta enviada de volta ao navegador do usuário.
+
+Para atualizar partes da página dinamicamente sem recarregar toda a página, o JSF oferece suporte a AJAX (Asynchronous JavaScript and XML). Com AJAX, os desenvolvedores podem enviar solicitações assíncronas ao servidor para buscar ou atualizar dados específicos sem a necessidade de recarregar a página inteira. Isso melhora significativamente a experiência do usuário, especialmente em casos onde pequenas atualizações são necessárias, evitando a recarga desnecessária de recursos.
   
 ## 2.3 Comunicação Entre Componentes
 - Reforcem como é realizada a comunicação entre componentes e que ela é facilitada pelo uso de expressões EL (Expression Language), que permitem o acesso e a manipulação dos dados dos Managed Beans nos componentes de UI.
