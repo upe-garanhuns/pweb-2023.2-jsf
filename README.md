@@ -6,9 +6,9 @@ Este seminário técnico e aprofundado sobre `JSF` explora os fundamentos da arq
 
 ## 1.1 O que é JSF?
 
-O `JSF` (Jakarta Faces, atualmente) foi desenvolvido pela Sun Microsystems (agora adquirida pela Oracle Corporation) como parte da plataforma Java EE (Enterprise Edition). No momento em que foi criado, sua função foi tentar resolver problemas como a complexidade de desenvolvimento, gerenciamento de estado, reusabilidade de componentes e integração com outras tecnologias Java. É importante destacar que este framework se baseia no padrão MVC, e que dentre suas principais características, é importante destacar o uso de componentes. Nele, já vem uma lista de componentes que podem ser utilizados, porém também podem ser usadas algumas bibliotecas que contêm mais componentes, como o PrimeFaces.
+O `JSF` foi desenvolvido pela Sun Microsystems como parte da plataforma Java EE (Enterprise Edition). No momento em que foi criado, sua função foi tentar resolver problemas como a complexidade de desenvolvimento, gerenciamento de estado, reusabilidade de componentes e integração com outras tecnologias Java. É importante destacar que este framework se baseia no padrão MVC, e que dentre suas principais características, é importante destacar o uso de componentes. Nele, já vem uma lista de componentes que podem ser utilizados, porém também podem ser usadas algumas bibliotecas que contêm mais componentes, como o PrimeFaces.
 
-Apesar de ainda ser utilizado em  projetos específicos e mais ainda em sistemas legado, ele era mais utilizado até o meio da década de 2010, que foi justamente quando começou a perder espaço para frameworks mais modernos e progressivos, como `React.js`, `VUE`, entre outros.
+Apesar de ainda ser utilizado em  projetos específicos e mais ainda em sistemas legado, ele era mais utilizado até o meio da década de 2010, que foi justamente quando ele começou a perder espaço para frameworks mais modernos e progressivos, como `React.js`, `VUE`, entre outros.
 
 Junto com o `Spring MVC` e `Struts`, ele é baseado em Java. Enquanto o `Spring` tem uma estrutura mais completa, contando com com as funcionalidades necessárias para atender requisições HTTP, delegar responsabilidades de processamento de dados para outros componentes e preparar a resposta que precisa ser dada, o `JSF` se baseia em um modelo um pouco mais complexo. Como será explicado depois, seu ciclo de vida conta com bem mais passos, que são, de certa forma, “mascarados” no `Spring MVC`. 
 
@@ -18,15 +18,13 @@ Enquanto o `Struts` é um framework MVC mais tradicional baseado em configuraç�
 
 Em relação a arquitetura, é importante destacar que, enquanto o `JSF` é baseado no MVC e componentizado e utiliza a renderização no lado do servidor, o React usa a renderização no lado do cliente, além de que o `JSF` gerencia o estado usando a sessão do servidor e a árvore de componentes, enquanto o React usa um DOM virtual e um fluxo de dados unidirecional para lidar com o gerenciamento de estado. O DOM virtual do React permite atualizações eficientes e melhor desempenho ao lidar com interações complexas de UI e mudanças de estado.
 
-Além disso, o framework `JSF` é não reativo, ao contrário da maioria dos frameworks webs mais utilizados, enquanto frameworks reativos como o `VUE` atuam utilizando a assincronia, e tendo como base conceitos como a responsividade (A  capacidade de oferecer um feedback mais rápido), resiliência(A capacidade de reagir e se recuperar de falhas) e elasticidade(A capacidade de se manter responsivo e resiliente, mesmo com altas variações de carga). 
+Além disso, o framework `JSF` é não reativo, ao contrário da maioria dos frameworks webs mais utilizados, enquanto frameworks reativos como o `VUE` atuam utilizando a assincronia, e tendo como base conceitos como a responsividade (A  capacidade de oferecer um feedback mais rápido), resiliência (A capacidade de reagir e se recuperar de falhas) e elasticidade (A capacidade de se manter responsivo e resiliente, mesmo com altas variações de carga). 
 
-Dito isso, em relação à outros frameworks mais progressivos, e suas principais características, é importante destacar pontos cruciais como a curva de aprendizado: onde `JSF` tende a ter mais íngreme em comparação com React e Angular, especialmente para desenvolvedores que não estão familiarizados com o ecossistema Java EE, e a performance: onde em termos de performance, `JSF` pode ser considerado relativamente eficiente. No entanto, em comparação com React e Angular, `JSF` pode ser menos eficiente em termos de renderização de interfaces de usuário altamente dinâmicas e interativas.
+Dito isso, em relação à outros frameworks mais progressivos, e suas principais características, é importante destacar pontos cruciais como a curva de aprendizado: onde ele tende a ser mais íngreme em comparação com React e Angular, especialmente para desenvolvedores que não estão familiarizados com o ecossistema Java EE, em termos de performance ele pode ser considerado relativamente eficiente. No entanto, em comparação com React e Angular, `JSF` pode ser menos eficiente em termos de renderização de interfaces de usuário altamente dinâmicas e interativas.
 
 ## 1.2 Por que JSF?
 
-O JavaServer Faces (JSF) ganhou popularidade principalmente devido à sua integração com o ecossistema Java EE e sua abordagem baseada em componentes para o desenvolvimento de interfaces de usuário web.
-
-O `JSF` é ideal para aplicações empresariais devido à sua escalabilidade e integração com tecnologias Java EE como EJB e JPA, permitindo o desenvolvimento de sistemas robustos. Sua capacidade de gerenciamento de estado é vantajosa para sistemas corporativos complexos, e sua integração com APIs de segurança oferece um alto nível de proteção. Ele também é adequado para e-commerce devido aos seus componentes ricos de UI e facilidade de integração com sistemas de pagamento. Em resumo, o `JSF` é uma escolha popular para projetos que exigem uma UI complexa, requisitos de segurança elevados e escalabilidade.
+O `JSF` ganhou popularidade principalmente devido à sua integração com o ecossistema Java EE e sua abordagem baseada em componentes para o desenvolvimento de interfaces de usuário web. Ele possui um ecossistema robusto de bibliotecas e ferramentas, o que facilita o desenvolvimento e a manutenção de aplicativos escaláveis. Ele é ideal para aplicações empresariais devido à sua escalabilidade e integração com tecnologias Java EE como EJB (Enterprise JavaBeans) e JPA (Java Persistence API), permitindo o desenvolvimento de sistemas robustos. Sua capacidade de gerenciamento de estado é vantajosa para sistemas corporativos complexos, e sua integração com APIs de segurança oferece um alto nível de proteção. Em resumo, o `JSF` é uma escolha popular para projetos que exigem uma UI complexa, requisitos de segurança elevados e escalabilidade.
 
 É importante notar que o cenário de desenvolvimento web está em constante evolução, e outras tecnologias, como `Angular`, `React` e `Vue.js`, ganharam popularidade nos últimos anos. Dependendo dos requisitos do projeto, pode ser vantajoso considerar essas tecnologias alternativas ao JSF, principalmente devido a experiência do usuário e o desempenho.
 
@@ -227,21 +225,21 @@ E por fim, o `h:outputText` é um componente para exibir texto. Os valores mostr
 
 ## 2.1 Definição e Estrutura de Componentes do JSF
 
-Em JavaServer Faces (JSF), os componentes são responsáveis por construírem as interfaces de usuário, e fazer com que sejam dinâmicas e interativas. Um componente no contexto do JSF é uma abstração de um elemento de interface do usuário (UI) que encapsula seu comportamento, lógica e estado. 
+Em `JSF`, os componentes são responsáveis por construírem as interfaces de usuário, e fazer com que sejam dinâmicas e interativas. Um componente nesse contexto é uma abstração de um elemento de interface do usuário (UI) que encapsula seu comportamento, lógica e estado. 
 
-Para gerenciar o estado e a lógica de negócios dos componentes de UI, JSF utiliza Managed Beans e backing beans. Managed Beans são classes Java que atuam como objetos de suporte para os componentes de UI em uma aplicação JSF. Essas classes são gerenciadas pelo container JSF e são responsáveis por lidar com o estado e a lógica de negócios associados aos componentes. Elas encapsulam a lógica da aplicação e oferecem métodos e propriedades que podem ser acessados diretamente pelas páginas JSF. Geralmente, os Managed Beans são anotados com @ManagedBean para indicar ao JSF que eles devem ser gerenciados pelo container. 
+- Para gerenciar o estado e a lógica de negócios dos componentes de UI, `JSF` utiliza Managed Beans e Backing Beans:
 
-Já os backing beans são um tipo específico de Managed Beans que são usados para suportar a interface de usuário (UI) em páginas JSF. Eles são responsáveis por manter o estado dos componentes de UI e executar a lógica de negócios associada às interações do usuário. Os backing beans geralmente são associados a formulários ou páginas específicas e são utilizados para vincular os valores dos componentes de UI aos campos de dados do modelo de negócios. Eles podem conter métodos que são chamados em resposta a eventos de UI, como submissão de formulário ou cliques em botões.
+	- Managed Beans são classes Java que atuam como objetos de suporte para os componentes de UI em uma aplicação. Essas classes são gerenciadas pelo container e são responsáveis por lidar com o estado e a lógica de negócios associados aos componentes. Elas encapsulam a lógica da aplicação e oferecem métodos e propriedades que podem ser acessados diretamente pelas páginas. Geralmente, os Managed Beans são anotados com @ManagedBean para indicar ao JSF que eles devem ser gerenciados pelo container. 
+
+	- Já os Backing Beans são um tipo específico de Managed Beans que são usados para suportar a interface de usuário em páginas JSF. Eles são responsáveis por manter o estado dos componentes e executar a lógica de negócios associada às interações do usuário. Os backing beans geralmente são associados a formulários ou páginas específicas e são utilizados para vincular os valores dos componentes de UI aos campos de dados do modelo de negócios. Eles podem conter métodos que são chamados em resposta a eventos, como submissão de formulário ou cliques em botões.
 
 Managed Beans e backing beans fornecem um meio de gerenciar o estado e a lógica de negócios dos componentes de UI. Eles ajudam a manter a separação de interesses entre a camada de apresentação e a camada de lógica de negócios, o que contribui para a modularidade, reutilização e manutenção do código da aplicação.
 
-- **Definição de Componente:** No contexto do JavaServer Faces (JSF), um componente é uma abstração de um elemento de interface do usuário (UI) que encapsula seu próprio comportamento, lógica e estado. Os componentes são a base para construir a interface do usuário em uma aplicação JSF. Eles podem variar desde simples, como campos de entrada de texto e botões, até complexos, como tabelas de dados e painéis de abas.
+- **Definição de Componente:** Um componente é uma abstração de um elemento de interface do usuário que encapsula seu próprio comportamento, lógica e estado. Os componentes são a base para construir a interface do usuário em uma aplicação JSF. Eles podem variar desde simples, como campos de entrada de texto e botões, até complexos, como tabelas de dados e painéis de abas.
 
-Os componentes em JSF seguem uma hierarquia, onde alguns componentes podem conter outros. Por exemplo, um formulário (<h:form>) pode conter vários campos de entrada (<h:inputText>) e botões de comando (<h:commandButton>). Essa hierarquia facilita a organização e a composição de interfaces de usuário complexas.
+Os componentes em `JSF` seguem uma hierarquia, onde alguns componentes podem conter outros. Por exemplo, um formulário (<h:form>) pode conter vários campos de entrada (<h:inputText>) e botões de comando (<h:commandButton>). Essa hierarquia facilita a organização e a composição de interfaces de usuário complexas. Eles são definidos em páginas XHTML usando tags específicas do `JSF`. Por exemplo, para criar um campo de entrada de texto, podemos usar a tag <h:inputText>, e para um botão de comando, usamos <h:commandButton>. Os atributos dessas tags podem ser configurados para controlar o comportamento e a aparência dos componentes.
 
-Os componentes são definidos em páginas XHTML usando tags específicas do JSF. Por exemplo, para criar um campo de entrada de texto, podemos usar a tag <h:inputText>, e para um botão de comando, usamos <h:commandButton>. Os atributos dessas tags podem ser configurados para controlar o comportamento e a aparência dos componentes.
-
-- **Composição de Componentes:** Os componentes em JSF podem ser aninhados e compostos uns com os outros para criar interfaces de usuário complexas e ricas em funcionalidades. Isso significa que podemos agrupar componentes menores para criar componentes maiores e mais complexos.
+- **Composição de Componentes:** Eles podem ser aninhados e compostos uns com os outros para criar interfaces de usuário complexas e ricas em funcionalidades. Isso significa que podemos agrupar componentes menores para criar componentes maiores e mais complexos.
 
 A composição de componentes permite a reutilização eficiente de código, pois pequenos componentes podem ser usados em várias partes da aplicação. Além disso, os dados podem ser passados entre os componentes usando Expressions Language (EL) e Taglibs. Por exemplo, o valor de um campo de entrada pode ser vinculado a uma propriedade em um backing bean usando EL, permitindo que os dados sejam recuperados e processados posteriormente.
 
@@ -292,21 +290,21 @@ public class FormularioBean {
 
 ## 2.2 Sistema Reativo do JSF (Ciclo de Vida de uma Página no JSF)
 
-Ao contrário do conceito de reatividade em frameworks como Vue.js, onde as atualizações são automaticamente refletidas na interface do usuário quando os dados subjacentes mudam, no JavaServer Faces (JSF), a reatividade é gerenciada pelo ciclo de vida da aplicação. Isso significa que as atualizações na interface do usuário ocorrem em resposta aos eventos do ciclo de vida da página, como processamento de eventos de UI, validações e atualizações do modelo, que acontecem antes da renderização da resposta na página.
+Ao contrário do conceito de reatividade em frameworks como `Vue.js`, onde as atualizações são automaticamente refletidas na interface do usuário quando os dados subjacentes mudam, no `JSF`, a reatividade é gerenciada pelo ciclo de vida da aplicação. Isso significa que as atualizações na interface do usuário ocorrem em resposta aos eventos do ciclo de vida da página, como processamento de eventos de UI, validações e atualizações do modelo, que acontecem antes da renderização da resposta na página.
 
-- O ciclo de vida da página JSF se comporta dessa maneira:
+- O ciclo de vida da página `JSF` se comporta dessa maneira:
 
   ![Ciclo de Vida](img/ciclo-de-vida.jpg)
 
-  - **Restauração da View:** Nesta fase, o JSF verifica se a requisição do usuário está associada a uma visualização JSF existente ou se é necessário criar uma nova. Os desenvolvedores podem intervir nesta fase adicionando ou modificando componentes da visualização, como campos de entrada, botões, etc.
+  - **Restauração da View:** Nesta fase, o JSF verifica se a requisição do usuário está associada a uma visualização existente ou se é necessário criar uma nova. Os desenvolvedores podem intervir nesta fase adicionando ou modificando componentes da visualização, como campos de entrada, botões, etc.
 
-  - **Aplicação de Validações de Componentes:** Durante esta fase, o JSF valida os dados de entrada do usuário com base nas regras de validação definidas pelos desenvolvedores nos componentes da interface do usuário. Os desenvolvedores podem intervir nesta fase personalizando as mensagens de erro ou adicionando suas próprias regras de validação.
+  - **Aplicação de Validações de Componentes:** Durante esta fase, são validados os dados de entrada do usuário com base nas regras de validação definidas pelos desenvolvedores nos componentes da interface do usuário. Os desenvolvedores podem intervir nesta fase personalizando as mensagens de erro ou adicionando suas próprias regras de validação.
 
   - **Processamento de Eventos do Componente:** Aqui, os eventos gerados pelos componentes da interface do usuário são processados. Os desenvolvedores podem intervir nesta fase implementando métodos de ação para lidar com os eventos dos componentes. Eles podem executar operações adicionais, como chamar métodos de negócios ou atualizar o modelo de dados.
 
   - **Atualização do Modelo:** Após a validação dos dados e o processamento dos eventos, o modelo de dados da aplicação é atualizado para refletir as alterações feitas pelo usuário. Os desenvolvedores podem intervir nesta fase atualizando manualmente o modelo de dados ou executando operações adicionais antes que a resposta seja renderizada.
 
-  - **Renderização da Resposta:** Finalmente, nesta fase, o JSF gera o HTML correspondente à resposta da requisição do usuário, que será enviada de volta ao navegador para exibição. Os desenvolvedores podem intervir nesta fase personalizando a aparência da resposta, definindo templates de visualização, aplicando estilos CSS e muito mais.
+  - **Renderização da Resposta:** Finalmente, nesta fase, o JSF gera o XHTML correspondente à resposta da requisição do usuário, que será enviada de volta ao navegador para exibição. Os desenvolvedores podem intervir nesta fase personalizando a aparência da resposta, definindo templates de visualização, aplicando estilos CSS e muito mais.
 
 O JSF realiza o tráfego de dados entre o cliente e o servidor usando o protocolo HTTP. Quando os dados são alterados pelo usuário, eles são enviados ao servidor por meio de solicitações HTTP, onde são processados pelo ciclo de vida da página JSF. As alterações no modelo de dados durante o processamento da página são refletidas na resposta enviada de volta ao navegador do usuário.
 
@@ -356,9 +354,7 @@ Além dos padrões de projeto, existem várias técnicas avançadas de implement
 
   - **Lazy Loading:** Carregar dados sob demanda para melhorar o desempenho e reduzir a sobrecarga inicial.
   - **Cache:** Armazenar em cache dados estáticos ou frequentemente acessados para reduzir a carga no servidor.
-  - **CDI Escopo:** Utilizar escopos adequados de CDI para gerenciar o ciclo de vida dos beans e otimizar o uso de recursos.
-
-  - Essas técnicas, combinadas com os padrões de projeto mencionados anteriormente, ajudam a criar aplicações JSF eficientes e escaláveis, capazes de lidar com os desafios do desenvolvimento web moderno.
+  - **CDI:** Utilizar escopos adequados de CDI para gerenciar o ciclo de vida dos beans e otimizar o uso de recursos.
 
 ### 3.1.1 Padrão Front Controller
 
@@ -412,11 +408,11 @@ No arquivo faces-config.xml, definimos regras de navegação para direcionar o u
 
 AJAX é uma técnica utilizada no desenvolvimento web para atualizar partes específicas de uma página sem a necessidade de recarregar a página inteira e é frequentemente utilizado no contexto do JSF para melhorar a experiência do usuário, permitindo interações mais dinâmicas e responsivas.
 
-No JSF, você pode usar a tag `f:ajax` para adicionar comportamentos AJAX a componentes JSF, como botões, links e inputs. Essa tag permite definir quais eventos devem acionar a requisição AJAX, quais componentes devem ser processados no lado do servidor e quais componentes da página devem ser atualizados após a resposta do servidor.
+No JSF, você pode usar a tag `f:ajax` para adicionar comportamentos AJAX a componentes, como botões, links e inputs. Essa tag permite definir quais eventos devem acionar a requisição AJAX, quais componentes devem ser processados no lado do servidor e quais componentes da página devem ser atualizados após a resposta do servidor.
 
-- O atributo execute especifica quais componentes JSF devem ser processados no lado do servidor antes de enviar a requisição AJAX. No exemplo fornecido `execute="@form"`, todos os componentes dentro do formulário atual serão processados.
+- O atributo `execute` especifica quais componentes JSF devem ser processados no lado do servidor antes de enviar a requisição AJAX. No exemplo fornecido `execute="@form"`, todos os componentes dentro do formulário atual serão processados.
 
-- O atributo render especifica quais componentes da página devem ser atualizados após a resposta do servidor. No exemplo fornecido `render="@form"`, o formulário atual será atualizado.
+- O atributo `render` especifica quais componentes da página devem ser atualizados após a resposta do servidor. No exemplo fornecido `render="@form"`, o formulário atual será atualizado.
 
 ```xml
   <h:form>
@@ -451,7 +447,7 @@ public class Bean {
 
 ### 4.2 Templates Facelets
 
-Os Templates Facelets no JSF permitem criar layouts reutilizáveis que podem ser aplicados em várias páginas da aplicação, facilitando a manutenção e a consistência do design. Eles funcionam definindo um template base que inclui elementos comuns da UI, como cabeçalho, rodapé e menu de navegação.
+Os Templates Facelets permitem criar layouts reutilizáveis que podem ser aplicados em várias páginas da aplicação, facilitando a manutenção e a consistência do design. Eles funcionam definindo um template base que inclui elementos comuns da UI, como cabeçalho, rodapé e menu de navegação.
 
 Os templates Facelets promovem a reutilização de código e a separação clara entre layout e conteúdo. Isso é alcançado através do uso de tags específicas, como `ui:define`, `ui:include`, ou `ui:composition`, que permitem inserir conteúdo específico nas páginas que utilizam o template, enquanto reutilizam a estrutura comum.
 
@@ -519,7 +515,7 @@ Neste exemplo, `template.xhtml` define a estrutura comum da aplicação, incluin
 
 - **Sobre o uso do JSF**: O JSF ofereceu uma variedade de recursos e funcionalidades para o desenvolvimento da aplicação, por mais simples que ela fosse e mesmo que nossa equipe não tenha tanta experiência com Java. O JSF proporciona uma experiência de desenvolvimento mais fluida, permitindo uma atualização automática da interface do usuário em resposta a mudanças nos dados ou no estado da aplicação. Além do auxílio de tecnologias como `Ajax` e Templates Facelets que facilitam o desenvolvimento de interfaces dinâmicas e a reutilização de componentes.
 
-- **Melhorias Futuras** : Uso de PrimeFaces para uma maior riqueza de componentes, integração com Bootstrap e facilidade de uso.
+- **Melhorias Futuras** : Uso de PrimeFaces para uma maior riqueza de componentes e integração com Bootstrap.
 
 - **Recursos Úteis**:
 
