@@ -235,17 +235,17 @@ Já os backing beans são um tipo específico de Managed Beans que são usados p
 
 Managed Beans e backing beans fornecem um meio de gerenciar o estado e a lógica de negócios dos componentes de UI. Eles ajudam a manter a separação de interesses entre a camada de apresentação e a camada de lógica de negócios, o que contribui para a modularidade, reutilização e manutenção do código da aplicação.
 
-**Definição de Componente:** No contexto do JavaServer Faces (JSF), um componente é uma abstração de um elemento de interface do usuário (UI) que encapsula seu próprio comportamento, lógica e estado. Os componentes são a base para construir a interface do usuário em uma aplicação JSF. Eles podem variar desde simples, como campos de entrada de texto e botões, até complexos, como tabelas de dados e painéis de abas.
+- **Definição de Componente:** No contexto do JavaServer Faces (JSF), um componente é uma abstração de um elemento de interface do usuário (UI) que encapsula seu próprio comportamento, lógica e estado. Os componentes são a base para construir a interface do usuário em uma aplicação JSF. Eles podem variar desde simples, como campos de entrada de texto e botões, até complexos, como tabelas de dados e painéis de abas.
 
 Os componentes em JSF seguem uma hierarquia, onde alguns componentes podem conter outros. Por exemplo, um formulário (<h:form>) pode conter vários campos de entrada (<h:inputText>) e botões de comando (<h:commandButton>). Essa hierarquia facilita a organização e a composição de interfaces de usuário complexas.
 
 Os componentes são definidos em páginas XHTML usando tags específicas do JSF. Por exemplo, para criar um campo de entrada de texto, podemos usar a tag <h:inputText>, e para um botão de comando, usamos <h:commandButton>. Os atributos dessas tags podem ser configurados para controlar o comportamento e a aparência dos componentes.
 
-**Composição de Componentes:** Os componentes em JSF podem ser aninhados e compostos uns com os outros para criar interfaces de usuário complexas e ricas em funcionalidades. Isso significa que podemos agrupar componentes menores para criar componentes maiores e mais complexos.
+- **Composição de Componentes:** Os componentes em JSF podem ser aninhados e compostos uns com os outros para criar interfaces de usuário complexas e ricas em funcionalidades. Isso significa que podemos agrupar componentes menores para criar componentes maiores e mais complexos.
 
 A composição de componentes permite a reutilização eficiente de código, pois pequenos componentes podem ser usados em várias partes da aplicação. Além disso, os dados podem ser passados entre os componentes usando Expressions Language (EL) e Taglibs. Por exemplo, o valor de um campo de entrada pode ser vinculado a uma propriedade em um backing bean usando EL, permitindo que os dados sejam recuperados e processados posteriormente.
 
-**Exemplo Prático:** 
+- **Exemplo Prático:** 
 
 ```xml
 <!DOCTYPE html>
@@ -328,12 +328,6 @@ No JSF, os escopos referem-se aos diferentes níveis de vida útil dos objetos g
 - **Application Scope:** O Managed Bean é mantido enquanto a aplicação estiver em execução.
 
 As anotações utilizadas para definir esses escopos são `@RequestScoped`, `@SessionScoped`, e `@ApplicationScoped`, respectivamente.
-
-O JSF facilita a comunicação entre componentes na mesma página ou entre páginas diferentes através de diversos mecanismos, como:
-
-Como mencionado anteriormente, os componentes podem se comunicar diretamente com os Managed Beans usando EL e bindings.
-Os eventos e listeners permitem que os componentes gerem e respondam a ações do usuário de forma dinâmica.
-O contexto de aplicação do JSF permite que os dados sejam compartilhados entre diferentes partes da aplicação, possibilitando uma comunicação eficiente entre componentes em diferentes partes da mesma página ou em páginas diferentes.
 
 # Seção 3: Padrões de Projeto e Implementação Avançada no JSF
 
