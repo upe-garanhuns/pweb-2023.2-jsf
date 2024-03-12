@@ -520,19 +520,26 @@ Os templates Facelets promovem a reutilização de código e a separação clara
 Neste exemplo, `template.xhtml` define a estrutura comum da aplicação, incluindo o cabeçalho, menu de navegação, conteúdo e rodapé. `minhaPagina.xhtml` utiliza este template, inserindo seu próprio conteúdo específico na área definida por `ui:define name="content"`. Isso permite que a estrutura do layout seja reutilizada em várias páginas, enquanto o conteúdo específico de cada página é inserido conforme necessário.
 
 ## 5 Conclusão e Reflexão
-
-- **Preparem uma Demonstração**: Certifiquem-se de que o projeto final esteja totalmente funcional e pronto para ser demonstrado. Revisem todos os requisitos do projeto para garantir que nada foi esquecido.
-
-- **Organizem a Apresentação**: Criem uma sequência lógica para apresentar o projeto. Iniciem com uma visão geral da aplicação, seguida por uma demonstração das funcionalidades principais e dos aspectos técnicos destacados.
-
-- **Aproveitem para Destacar Desafios e Soluções**: Identifiquem os principais desafios enfrentados durante o desenvolvimento do projeto e discutam como resolveram esses problemas. Isso pode incluir desafios de codificação, decisões de design ou a integração de tecnologias.
-
-- **Screencasts ou Vídeos** : Considerem a utilização de screencasts para demonstrar a funcionalidade da aplicação ou vídeos para explicar conceitos complexos. Isso pode ajudar a tornar a apresentação mais dinâmica e compreensível.
   
-- **Discutam as Lições Aprendidas**: Reflitam sobre o que aprenderam durante o processo de desenvolvimento do projeto. Isso pode incluir novas habilidades técnicas, insights sobre design de software ou aperfeiçoamento de habilidades de trabalho em equipe.
+- **Lições Aprendidas**: O principal ponto aprendido com esse estudo sobre JSF foi que, ao utilizar sua capacidade de criação e reutilização de componentes de interface de usuário, juntamente com o gerenciamento simplificado de estado, é possível desenvolver aplicativos web de forma mais eficiente, garantindo maior consistência visual e uma experiência de usuário mais fluida, mesmo sendo uma tecnologia que está em desuso em relação a tecnologias mais modernas.
 
-- **Avaliem o Uso do JSF**: Avaliem como o JSF facilitou ou complicou o desenvolvimento do projeto. Discutam os pontos fortes e fracos com base na experiência prática adquirida.
+- **Sobre o uso do JSF**: O JSF ofereceu uma variedade de recursos e funcionalidades para o desenvolvimento da aplicação, por mais simples que ela fosse e mesmo que nossa equipe não tenha tanta experiência com Java. O JSF proporciona uma experiência de desenvolvimento mais fluida, permitindo uma atualização automática da interface do usuário em resposta a mudanças nos dados ou no estado da aplicação. Além do auxílio de tecnologias como `Ajax` e Templates Facelets que facilitam o desenvolvimento de interfaces dinâmicas e a reutilização de componentes.
 
-- **Considerem Melhorias Futuras** : Pensem em como o projeto pode ser expandido ou melhorado. Discutam funcionalidades adicionais que poderiam ser implementadas ou como a arquitetura poderia ser otimizada para maior eficiência e escalabilidade.
+- **Melhorias Futuras** : Uso de PrimeFaces para uma maior riqueza de componentes, integração com Bootstrap e facilidade de uso.
 
-- **Compartilhem Recursos Úteis**: Finalizem a apresentação compartilhando recursos que foram particularmente úteis durante o desenvolvimento do projeto. Isso pode incluir documentação, tutoriais, bibliotecas ou ferramentas.
+- **Recursos Úteis**:
+
+- https://javaee.github.io/javaserverfaces-spec/
+- https://docs.oracle.com/javaee/5/tutorial/doc/bnaph.html
+- https://docs.oracle.com/javaee/5/tutorial/doc/bnaqq.html
+- https://docs.oracle.com/cd/E19798-01/821-1841/bnaqm/index.html
+- https://www.devmedia.com.br/javaserver-faces/33272
+- https://blog.algaworks.com/spring-mvc/
+- https://www.devmedia.com.br/fundamentos-do-java-struts/7238
+- https://www.devmedia.com.br/introducao-ao-primefaces/33139
+- https://stackshare.io/stackups/jsf-vs-react
+- https://www.jdevtreinamento.com.br/jsf-principais-componentes/#:~:text=Os%20componentes%20do%20JSF%20são,do%20Input%2C%20Data%20e%20Panel.
+- https://www.devmedia.com.br/jsf-conheca-os-principais-componentes/37360
+- https://stackoverflow.com/questions/4713483/difference-between-managed-bean-and-backing-bean
+- https://www.youtube.com/watch?v=ezwgBvsd6Ps&t=16521s
+- https://www.baeldung.com/intro-to-jsf-expression-language#:~:text=Expression%20Language%20(EL)%2C%20is,this%20scripting%20language%20–%20Unified%20EL.
