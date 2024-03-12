@@ -98,7 +98,7 @@ textarea {
     margin: 10px;
 }
 
-input#userForm\:j_idt17 {
+input#userForm\:j_idt18 {
     padding: 10px 20px;
     font-size: 16px;
     background-color: var(--color-primary-1);
@@ -109,7 +109,7 @@ input#userForm\:j_idt17 {
     transition: var(--tran-05);
 }
 
-input#userForm\:j_idt17:hover {
+input#userForm\:j_idt18:hover {
     background-color: var(--color-primary-2);
     color: var(--color-neutral-1);
 }
