@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Chivo", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary-1: #1e695cff;
+    --color-primary-2: #faa7b5ff;
+    --color-primary-3: #baa8abff;
+
+    --color-neutral-0: #fff;
+    --color-neutral-1: #000;
+    --color-neutral-2: #f5f6f6;
+
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+body {
+    background-color: var(--color-neutral-2);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+h1 {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+}
+
+h2 {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+p {
+	display: flex;
+	justify-content: center;
+}
+
+p.primeiro {
+	margin-top: 20px;
+}
+
+form#userForm {
+	margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-weight: 700;
+    display: block;
+}
+
+input {
+    width: 300px;
+    padding: 6px 6px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1.5px solid var(--color-primary-1);
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+select {
+    width: 300px;
+    padding: 6px 6px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1.5px solid var(--color-primary-1);
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+textarea {
+    width: 300px;
+    height: 50px;
+    padding: 6px 6px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1.5px solid var(--color-primary-1);
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+input#userForm\:j_idt17 {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--color-primary-1);
+    color: var(--color-neutral-0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+input#userForm\:j_idt17:hover {
+    background-color: var(--color-primary-2);
+    color: var(--color-neutral-1);
+}
+
